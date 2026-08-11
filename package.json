@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://Vishesh007-creator.github.io/ai-astra-web",
+  "homepage": "https://astraaireal.github.io/Astra-AI",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
