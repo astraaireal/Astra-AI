@@ -24,29 +24,29 @@ Error generating stack: `+e.message+`
     width: 100%;
   }
 
-  /* GLOWING TEXT EFFECTS */
+  /* GLOW & GRADIENT TEXT EFFECTS */
   .glow-text-cyan {
     background: linear-gradient(135deg, #ffffff 0%, #38BDF8 50%, #1E90FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.5));
+    filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.4));
   }
 
-  /* GLASS CARDS & CONTAINERS */
+  /* GLASS CARDS & HOVER ANIMATIONS */
   .glass-card {
     background: rgba(15, 23, 42, 0.45);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.07);
-    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .glass-card:hover {
-    background: rgba(15, 23, 42, 0.65);
+    background: rgba(15, 23, 42, 0.7);
     border-color: rgba(56, 189, 248, 0.4);
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.2);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 30px rgba(56, 189, 248, 0.15);
   }
 
   /* BUTTON STYLES */
@@ -55,55 +55,55 @@ Error generating stack: `+e.message+`
     color: #ffffff;
     font-weight: 700;
     font-size: 13px;
-    letter-spacing: 1px;
-    padding: 14px 32px;
+    letter-spacing: 0.5px;
+    padding: 14px 28px;
     border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 25px rgba(37, 99, 235, 0.4);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     text-decoration: none;
     cursor: pointer;
     white-space: nowrap;
   }
 
   .btn-primary:hover {
-    transform: scale(1.04);
-    box-shadow: 0 0 50px rgba(56, 189, 248, 0.8);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 45px rgba(56, 189, 248, 0.7);
     border-color: rgba(255, 255, 255, 0.5);
   }
 
   .btn-secondary {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.04);
     color: #e2e8f0;
     font-weight: 600;
     font-size: 13px;
-    letter-spacing: 1px;
-    padding: 14px 32px;
+    letter-spacing: 0.5px;
+    padding: 14px 28px;
     border-radius: 50px;
     border: 1px solid rgba(255, 255, 255, 0.12);
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 8px;
     text-decoration: none;
     cursor: pointer;
     white-space: nowrap;
   }
 
   .btn-secondary:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.09);
     border-color: rgba(255, 255, 255, 0.3);
     color: #ffffff;
   }
 
-  /* GRID & GLOW ORB BACKGROUNDS */
+  /* BACKGROUND ORB & GRID */
   .grid-bg {
-    background-size: 60px 60px;
+    background-size: 50px 50px;
     background-image: 
       linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
@@ -112,8 +112,8 @@ Error generating stack: `+e.message+`
   .hero-orb {
     position: absolute;
     width: 100%;
-    max-width: 550px;
-    height: 550px;
+    max-width: 500px;
+    height: 500px;
     border-radius: 50%;
     background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(56, 189, 248, 0.1) 40%, rgba(3, 7, 18, 0) 70%);
     pointer-events: none;
@@ -122,29 +122,65 @@ Error generating stack: `+e.message+`
   }
 
   @keyframes pulseOrb {
-    0% { transform: scale(1); opacity: 0.8; }
+    0% { transform: scale(1); opacity: 0.7; }
     100% { transform: scale(1.15); opacity: 1; }
   }
 
-  .hero-logo-img {
-    width: 100%;
-    max-width: 440px;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 0 45px rgba(56, 189, 248, 0.55));
-    transition: all 0.5s ease;
+  /* FLOATING WHATSAPP PULSE */
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 99;
+    background: #25D366;
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    animation: pulseWhatsapp 2s infinite;
   }
 
-  .hero-logo-img:hover {
-    transform: scale(1.03) rotate(0.5deg);
-    filter: drop-shadow(0 0 65px rgba(56, 189, 248, 0.85));
+  @keyframes pulseWhatsapp {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 18px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
   }
 
-  /* MODAL ANIMATION */
+  .whatsapp-btn:hover {
+    transform: scale(1.1);
+  }
+
+  .whatsapp-tooltip {
+    position: absolute;
+    right: 72px;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #fff;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+
+  .whatsapp-btn:hover .whatsapp-tooltip {
+    opacity: 1;
+  }
+
+  /* MODAL OVERLAY */
   .modal-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(3, 7, 18, 0.85);
+    background: rgba(3, 7, 18, 0.88);
     backdrop-filter: blur(16px);
     z-index: 100;
     display: flex;
@@ -153,72 +189,20 @@ Error generating stack: `+e.message+`
     padding: 20px;
   }
 
-  /* MOBILE RESPONSIVE MEDIA QUERIES */
+  /* RESPONSIVE BREAKPOINTS */
   @media (max-width: 1024px) {
-    .nav-links {
-      display: none !important;
-    }
-    
-    .hero-section {
-      grid-template-columns: 1fr !important;
-      gap: 40px !important;
-      padding-top: 130px !important;
-      text-align: center;
-    }
-
-    .hero-title {
-      font-size: 42px !important;
-    }
-
-    .hero-btn-container {
-      justify-content: center;
-    }
-
-    .metrics-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 20px !important;
-    }
-
-    .cards-grid-3 {
-      grid-template-columns: 1fr !important;
-    }
-
-    .cards-grid-4 {
-      grid-template-columns: repeat(2, 1fr) !important;
-    }
-
-    .nav-container {
-      padding: 14px 20px !important;
-    }
-
-    .section-padding {
-      padding: 60px 20px !important;
-    }
-
-    .contact-form-grid {
-      grid-template-columns: 1fr !important;
-    }
+    .nav-links { display: none !important; }
+    .hero-section { grid-template-columns: 1fr !important; gap: 40px !important; text-align: center; }
+    .hero-btn-container { justify-content: center; }
+    .grid-2 { grid-template-columns: 1fr !important; }
+    .grid-3 { grid-template-columns: 1fr !important; }
+    .grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+    .section-padding { padding: 60px 20px !important; }
   }
 
   @media (max-width: 640px) {
-    .hero-title {
-      font-size: 34px !important;
-    }
-
-    .cards-grid-4 {
-      grid-template-columns: 1fr !important;
-    }
-
-    .btn-primary, .btn-secondary {
-      width: 100%;
-    }
-
-    .hero-btn-container {
-      flex-direction: column;
-    }
-
-    .metrics-grid {
-      grid-template-columns: repeat(2, 1fr) !important;
-    }
+    .grid-4 { grid-template-columns: 1fr !important; }
+    .btn-primary, .btn-secondary { width: 100%; }
+    .hero-btn-container { flex-direction: column; }
   }
-`;function S(){let e=(0,_.useRef)(null);return(0,_.useEffect)(()=>{let t=e.current;if(!t)return;let n=t.getContext(`2d`),r,i=t.width=window.innerWidth,a=t.height=window.innerHeight,o=Array.from({length:45},()=>({x:Math.random()*i,y:Math.random()*a,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,size:Math.random()*2+.5})),s=()=>{n.clearRect(0,0,i,a);for(let e=0;e<o.length;e++)for(let t=e+1;t<o.length;t++){let r=o[e].x-o[t].x,i=o[e].y-o[t].y,a=Math.sqrt(r*r+i*i);a<110&&(n.beginPath(),n.moveTo(o[e].x,o[e].y),n.lineTo(o[t].x,o[t].y),n.strokeStyle=`rgba(56, 189, 248, ${.08*(1-a/110)})`,n.lineWidth=.6,n.stroke())}o.forEach(e=>{e.x+=e.vx,e.y+=e.vy,e.x<0&&(e.x=i),e.x>i&&(e.x=0),e.y<0&&(e.y=a),e.y>a&&(e.y=0),n.beginPath(),n.arc(e.x,e.y,e.size,0,Math.PI*2),n.fillStyle=`rgba(56, 189, 248, 0.5)`,n.fill()}),r=requestAnimationFrame(s)};s();let c=()=>{i=t.width=window.innerWidth,a=t.height=window.innerHeight};return window.addEventListener(`resize`,c),()=>{cancelAnimationFrame(r),window.removeEventListener(`resize`,c)}},[]),(0,x.jsx)(`canvas`,{ref:e,style:{position:`fixed`,inset:0,pointerEvents:`none`,zIndex:0}})}function C(){let[e,t]=(0,_.useState)(!1),[n,r]=(0,_.useState)(!1),i=e=>{e.preventDefault(),r(!0),setTimeout(()=>{r(!1),t(!1)},2500)};return(0,x.jsxs)(`div`,{style:{backgroundColor:`#030712`,minHeight:`100vh`,color:`#fff`,position:`relative`},className:`grid-bg`,children:[(0,x.jsx)(`style`,{children:ee}),(0,x.jsx)(S,{}),e&&(0,x.jsx)(`div`,{className:`modal-overlay`,children:(0,x.jsxs)(`div`,{className:`glass-card`,style:{maxWidth:`500px`,width:`100%`,padding:`32px`,position:`relative`,border:`1px solid rgba(56, 189, 248, 0.4)`},children:[(0,x.jsx)(`button`,{onClick:()=>t(!1),style:{position:`absolute`,top:`16px`,right:`20px`,background:`none`,border:`none`,color:`#94a3b8`,fontSize:`24px`,cursor:`pointer`},children:`×`}),n?(0,x.jsxs)(`div`,{style:{textAlign:`center`,padding:`20px 0`},children:[(0,x.jsx)(`div`,{style:{fontSize:`48px`,marginBottom:`16px`},children:`✨`}),(0,x.jsx)(`h3`,{style:{fontSize:`24px`,fontWeight:`800`,marginBottom:`10px`,color:`#38BDF8`},children:`Request Transmitted!`}),(0,x.jsx)(`p`,{style:{color:`#94a3b8`,fontSize:`14px`},children:`Our AI engineering team will reach out to you within 2 hours.`})]}):(0,x.jsxs)(`div`,{children:[(0,x.jsx)(`h3`,{style:{fontSize:`24px`,fontWeight:`800`,marginBottom:`8px`},children:`Book Free AI Audit`}),(0,x.jsx)(`p`,{style:{color:`#94a3b8`,fontSize:`13px`,marginBottom:`24px`},children:`Schedule a 1-on-1 architecture call for your business.`}),(0,x.jsxs)(`form`,{onSubmit:i,style:{display:`grid`,gap:`16px`},children:[(0,x.jsx)(`input`,{type:`text`,required:!0,placeholder:`Your Name`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}}),(0,x.jsx)(`input`,{type:`email`,required:!0,placeholder:`Work Email`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}}),(0,x.jsx)(`input`,{type:`text`,placeholder:`Company / Website`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}}),(0,x.jsx)(`button`,{type:`submit`,className:`btn-primary`,style:{marginTop:`10px`},children:`Confirm Audit Call →`})]})]})]})}),(0,x.jsxs)(`nav`,{className:`nav-container`,style:{position:`fixed`,top:0,width:`100%`,zIndex:50,padding:`16px 50px`,display:`flex`,justifyContent:`space-between`,alignItems:`center`,background:`rgba(3, 7, 18, 0.85)`,backdropFilter:`blur(20px)`,borderBottom:`1px solid rgba(255, 255, 255, 0.08)`},children:[(0,x.jsxs)(`div`,{style:{display:`flex`,alignItems:`center`,gap:`12px`},children:[(0,x.jsx)(`img`,{src:y,alt:`ASTRA AI Logo`,style:{height:`38px`,width:`auto`,objectFit:`contain`}}),(0,x.jsxs)(`span`,{style:{fontSize:`18px`,fontWeight:`900`,letterSpacing:`2px`,color:`#fff`},children:[`ASTRA `,(0,x.jsx)(`span`,{style:{color:`#38BDF8`,fontSize:`12px`},children:`AI`})]})]}),(0,x.jsxs)(`div`,{className:`nav-links`,style:{display:`flex`,gap:`32px`,fontSize:`13px`,fontWeight:`600`,textTransform:`uppercase`,letterSpacing:`1px`,color:`#94a3b8`},children:[(0,x.jsx)(`a`,{href:`#home`,style:{color:`#fff`,textDecoration:`none`},children:`Home`}),(0,x.jsx)(`a`,{href:`#solutions`,style:{color:`inherit`,textDecoration:`none`},children:`Solutions`}),(0,x.jsx)(`a`,{href:`#why`,style:{color:`inherit`,textDecoration:`none`},children:`Why Us`}),(0,x.jsx)(`a`,{href:`#process`,style:{color:`inherit`,textDecoration:`none`},children:`Process`}),(0,x.jsx)(`a`,{href:`#contact`,style:{color:`inherit`,textDecoration:`none`},children:`Contact`})]}),(0,x.jsx)(`button`,{onClick:()=>t(!0),className:`btn-primary`,style:{padding:`10px 20px`,fontSize:`12px`},children:`Book Audit →`})]}),(0,x.jsxs)(`section`,{id:`home`,className:`hero-section section-padding`,style:{paddingTop:`180px`,paddingBottom:`100px`,paddingLeft:`50px`,paddingRight:`50px`,maxWidth:`1350px`,margin:`0 auto`,display:`grid`,gridTemplateColumns:`1.1fr 0.9fr`,gap:`50px`,alignItems:`center`,zIndex:10,position:`relative`},children:[(0,x.jsxs)(`div`,{children:[(0,x.jsxs)(`div`,{style:{display:`inline-flex`,alignItems:`center`,gap:`10px`,padding:`8px 18px`,borderRadius:`30px`,background:`rgba(37, 99, 235, 0.12)`,border:`1px solid rgba(56, 189, 248, 0.3)`,color:`#38BDF8`,fontSize:`11px`,fontFamily:`JetBrains Mono`,letterSpacing:`2px`,marginBottom:`24px`,fontWeight:`600`},children:[(0,x.jsx)(`span`,{style:{width:`8px`,height:`8px`,borderRadius:`50%`,background:`#38BDF8`,boxShadow:`0 0 12px #38BDF8`}}),`NEXT-GEN ENTERPRISE AI AGENTS`]}),(0,x.jsxs)(`h1`,{className:`hero-title`,style:{fontSize:`58px`,fontWeight:`900`,lineHeight:`1.1`,marginBottom:`20px`,letterSpacing:`-1.5px`},children:[`Intelligence `,(0,x.jsx)(`br`,{}),(0,x.jsx)(`span`,{className:`glow-text-cyan`,children:`That Empowers.`})]}),(0,x.jsx)(`p`,{style:{fontSize:`16px`,color:`#94a3b8`,lineHeight:`1.65`,maxWidth:`530px`,margin:`0 auto 36px auto`,fontWeight:`300`},children:`We architect autonomous AI systems, intelligent voice bots, and automated workflows that scale your business revenue 24/7 with zero operational friction.`}),(0,x.jsxs)(`div`,{className:`hero-btn-container`,style:{display:`flex`,gap:`16px`,marginBottom:`50px`},children:[(0,x.jsx)(`button`,{onClick:()=>t(!0),className:`btn-primary`,children:`Book Free Consultation →`}),(0,x.jsx)(`a`,{href:`#solutions`,className:`btn-secondary`,children:`Explore AI Suite ›`})]}),(0,x.jsxs)(`div`,{className:`metrics-grid`,style:{display:`grid`,gridTemplateColumns:`repeat(4, 1fr)`,gap:`20px`,paddingTop:`32px`,borderTop:`1px solid rgba(255,255,255,0.08)`},children:[(0,x.jsxs)(`div`,{children:[(0,x.jsx)(`div`,{style:{fontSize:`26px`,fontWeight:`800`,color:`#fff`,fontFamily:`JetBrains Mono`},children:`50+`}),(0,x.jsx)(`div`,{style:{fontSize:`11px`,color:`#64748b`,marginTop:`4px`},children:`Deployments`})]}),(0,x.jsxs)(`div`,{children:[(0,x.jsx)(`div`,{style:{fontSize:`26px`,fontWeight:`800`,color:`#38BDF8`,fontFamily:`JetBrains Mono`},children:`10x`}),(0,x.jsx)(`div`,{style:{fontSize:`11px`,color:`#64748b`,marginTop:`4px`},children:`Efficiency`})]}),(0,x.jsxs)(`div`,{children:[(0,x.jsx)(`div`,{style:{fontSize:`26px`,fontWeight:`800`,color:`#fff`,fontFamily:`JetBrains Mono`},children:`<60s`}),(0,x.jsx)(`div`,{style:{fontSize:`11px`,color:`#64748b`,marginTop:`4px`},children:`Response Time`})]}),(0,x.jsxs)(`div`,{children:[(0,x.jsx)(`div`,{style:{fontSize:`26px`,fontWeight:`800`,color:`#38BDF8`,fontFamily:`JetBrains Mono`},children:`99.9%`}),(0,x.jsx)(`div`,{style:{fontSize:`11px`,color:`#64748b`,marginTop:`4px`},children:`Uptime`})]})]})]}),(0,x.jsxs)(`div`,{style:{display:`flex`,justifyContent:`center`,alignItems:`center`,position:`relative`},children:[(0,x.jsx)(`div`,{className:`hero-orb`}),(0,x.jsx)(`div`,{style:{position:`relative`,zIndex:2,padding:`10px`},children:(0,x.jsx)(`img`,{src:y,className:`hero-logo-img`,alt:`ASTRA AI Emblem`})})]})]}),(0,x.jsxs)(`section`,{id:`solutions`,className:`section-padding`,style:{padding:`100px 50px`,maxWidth:`1350px`,margin:`0 auto`,position:`relative`,zIndex:10},children:[(0,x.jsxs)(`div`,{style:{textAlign:`center`,marginBottom:`60px`},children:[(0,x.jsx)(`div`,{style:{color:`#38BDF8`,fontSize:`12px`,fontFamily:`JetBrains Mono`,letterSpacing:`3px`,marginBottom:`12px`,fontWeight:`700`},children:`OUR CAPABILITIES`}),(0,x.jsx)(`h2`,{style:{fontSize:`36px`,fontWeight:`900`},children:`Autonomous AI Solutions`})]}),(0,x.jsx)(`div`,{className:`cards-grid-3`,style:{display:`grid`,gridTemplateColumns:`repeat(3, 1fr)`,gap:`24px`},children:[{icon:`🤖`,title:`Autonomous AI Agents`,desc:`Self-learning agents capable of executing complex multi-step workflows and customer engagement.`,tag:`AGENTS & BOT SUITE`},{icon:`🎙️`,title:`Human-Like Voice AI`,desc:`Ultra-realistic telephony voice bots that make outbound sales calls and answer customer inquiries live.`,tag:`TELEPHONY & CALLS`},{icon:`⚡`,title:`Workflow Automation`,desc:`Seamless integration across your CRM, WhatsApp, Email, and internal databases to eliminate manual labor.`,tag:`PROCESS INTEGRATION`}].map((e,n)=>(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`36px`,display:`flex`,flexDirection:`column`,justifyContent:`space-between`},children:[(0,x.jsxs)(`div`,{children:[(0,x.jsx)(`div`,{style:{fontSize:`11px`,fontFamily:`JetBrains Mono`,color:`#38BDF8`,marginBottom:`16px`,letterSpacing:`1px`},children:e.tag}),(0,x.jsx)(`div`,{style:{fontSize:`34px`,marginBottom:`16px`},children:e.icon}),(0,x.jsx)(`h3`,{style:{fontSize:`20px`,fontWeight:`800`,marginBottom:`12px`},children:e.title}),(0,x.jsx)(`p`,{style:{color:`#94a3b8`,fontSize:`14px`,lineHeight:`1.6`,fontWeight:`300`,marginBottom:`24px`},children:e.desc})]}),(0,x.jsx)(`button`,{onClick:()=>t(!0),className:`btn-secondary`,style:{width:`100%`,padding:`10px 16px`,fontSize:`12px`},children:`Deploy Solution →`})]},n))}),(0,x.jsxs)(`div`,{style:{marginTop:`80px`,textAlign:`center`},children:[(0,x.jsx)(`div`,{style:{fontSize:`11px`,color:`#64748b`,letterSpacing:`2px`,fontFamily:`JetBrains Mono`,marginBottom:`24px`},children:`POWERING NEXT-GEN ENTERPRISES`}),(0,x.jsxs)(`div`,{style:{display:`flex`,justifyContent:`center`,gap:`40px`,opacity:.5,flexWrap:`wrap`,fontSize:`14px`,fontWeight:`700`,letterSpacing:`1px`},children:[(0,x.jsx)(`span`,{children:`ACME CORP`}),(0,x.jsx)(`span`,{children:`GLOBEX`}),(0,x.jsx)(`span`,{children:`INNOSYNC`}),(0,x.jsx)(`span`,{children:`VERTEX AI`}),(0,x.jsx)(`span`,{children:`NEXORA`}),(0,x.jsx)(`span`,{children:`BUILDSMART`})]})]})]}),(0,x.jsxs)(`section`,{id:`why`,className:`section-padding`,style:{padding:`80px 50px`,maxWidth:`1350px`,margin:`0 auto`,position:`relative`,zIndex:10},children:[(0,x.jsx)(`div`,{style:{textAlign:`center`,marginBottom:`50px`},children:(0,x.jsx)(`h2`,{style:{fontSize:`36px`,fontWeight:`900`},children:`Why Choose Astra AI`})}),(0,x.jsx)(`div`,{className:`cards-grid-4`,style:{display:`grid`,gridTemplateColumns:`repeat(4, 1fr)`,gap:`20px`},children:[{title:`Cutting-Edge AI`,desc:`Leveraging state-of-the-art LLMs and neural vision models.`},{title:`Built for Scale`,desc:`Architected to handle millions of queries with zero latency.`},{title:`Bank-Grade Security`,desc:`Encrypted data pipelines ensuring complete privacy & compliance.`},{title:`24/7 Active Monitoring`,desc:`Dedicated support and automatic self-healing agent pipelines.`}].map((e,t)=>(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`28px`,textAlign:`center`},children:[(0,x.jsx)(`h4`,{style:{fontSize:`17px`,fontWeight:`800`,marginBottom:`10px`},children:e.title}),(0,x.jsx)(`p`,{style:{fontSize:`13px`,color:`#64748b`,lineHeight:`1.6`},children:e.desc})]},t))})]}),(0,x.jsxs)(`section`,{id:`process`,className:`section-padding`,style:{padding:`100px 50px`,maxWidth:`1350px`,margin:`0 auto`,position:`relative`,zIndex:10},children:[(0,x.jsxs)(`div`,{style:{textAlign:`center`,marginBottom:`60px`},children:[(0,x.jsx)(`div`,{style:{color:`#38BDF8`,fontSize:`12px`,fontFamily:`JetBrains Mono`,letterSpacing:`3px`,marginBottom:`12px`,fontWeight:`700`},children:`ROADMAP`}),(0,x.jsx)(`h2`,{style:{fontSize:`36px`,fontWeight:`900`},children:`Our 4-Step Process`})]}),(0,x.jsx)(`div`,{className:`cards-grid-4`,style:{display:`grid`,gridTemplateColumns:`repeat(4, 1fr)`,gap:`20px`},children:[{num:`01`,title:`Discovery`,desc:`We audit your manual bottlenecks and data infrastructure.`},{num:`02`,title:`Architecture`,desc:`We design custom AI models tailored to your exact business logic.`},{num:`03`,title:`Integration`,desc:`We deploy and thoroughly test agents within your tech stack.`},{num:`04`,title:`Scale`,desc:`Continuous optimization and monitoring for compounding ROI.`}].map((e,t)=>(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`28px`},children:[(0,x.jsx)(`div`,{style:{fontSize:`14px`,fontWeight:`800`,color:`#38BDF8`,fontFamily:`JetBrains Mono`,marginBottom:`14px`},children:e.num}),(0,x.jsx)(`h4`,{style:{fontSize:`18px`,fontWeight:`800`,marginBottom:`10px`},children:e.title}),(0,x.jsx)(`p`,{style:{fontSize:`13px`,color:`#94a3b8`,lineHeight:`1.6`},children:e.desc})]},t))})]}),(0,x.jsx)(`section`,{id:`contact`,className:`section-padding`,style:{padding:`80px 50px`,maxWidth:`1000px`,margin:`0 auto`,position:`relative`,zIndex:10},children:(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`40px 24px`,textAlign:`center`,background:`linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(37, 99, 235, 0.15) 100%)`,border:`1px solid rgba(56, 189, 248, 0.3)`},children:[(0,x.jsx)(`h2`,{style:{fontSize:`32px`,fontWeight:`900`,marginBottom:`12px`},children:`Ready to Automate Your Empire?`}),(0,x.jsx)(`p`,{style:{color:`#94a3b8`,fontSize:`14px`,marginBottom:`32px`},children:`Book a 1-on-1 consultation session with our AI engineering team.`}),(0,x.jsxs)(`form`,{style:{display:`grid`,gap:`16px`,textAlign:`left`,maxWidth:`600px`,margin:`0 auto`},onSubmit:i,children:[(0,x.jsxs)(`div`,{className:`contact-form-grid`,style:{display:`grid`,gridTemplateColumns:`1fr 1fr`,gap:`16px`},children:[(0,x.jsx)(`input`,{type:`text`,required:!0,placeholder:`Your Name`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}}),(0,x.jsx)(`input`,{type:`email`,required:!0,placeholder:`Email Address`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}})]}),(0,x.jsx)(`textarea`,{rows:`4`,placeholder:`Describe your business goals...`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`,resize:`none`}}),(0,x.jsx)(`button`,{type:`submit`,className:`btn-primary`,style:{width:`100%`,fontSize:`13px`},children:`Transmit Consultation Request 🔱`})]})]})}),(0,x.jsxs)(`footer`,{className:`section-padding`,style:{padding:`50px 50px 30px`,borderTop:`1px solid rgba(255,255,255,0.08)`,position:`relative`,zIndex:10},children:[(0,x.jsxs)(`div`,{style:{maxWidth:`1200px`,margin:`0 auto`,display:`flex`,justifyContent:`space-between`,alignItems:`center`,marginBottom:`30px`,flexWrap:`wrap`,gap:`20px`},children:[(0,x.jsxs)(`div`,{style:{display:`flex`,alignItems:`center`,gap:`12px`},children:[(0,x.jsx)(`img`,{src:y,alt:`ASTRA AI Logo`,style:{height:`34px`,width:`auto`}}),(0,x.jsx)(`span`,{style:{fontSize:`18px`,fontWeight:`900`,letterSpacing:`2px`},children:`ASTRA AI`})]}),(0,x.jsx)(`div`,{style:{fontSize:`11px`,color:`#64748b`,fontFamily:`JetBrains Mono`},children:`INTELLIGENCE THAT EMPOWERS`})]}),(0,x.jsxs)(`div`,{style:{maxWidth:`1200px`,margin:`0 auto`,borderTop:`1px solid rgba(255,255,255,0.05)`,paddingTop:`20px`,display:`flex`,justifyContent:`space-between`,fontSize:`12px`,color:`#64748b`,flexWrap:`wrap`,gap:`10px`},children:[(0,x.jsx)(`span`,{children:`© 2026 ASTRA AI. All rights reserved.`}),(0,x.jsxs)(`div`,{style:{display:`flex`,gap:`20px`},children:[(0,x.jsx)(`span`,{children:`Privacy Policy`}),(0,x.jsx)(`span`,{children:`Terms of Service`})]})]})]})]})}(0,v.createRoot)(document.getElementById(`root`)).render((0,x.jsx)(_.StrictMode,{children:(0,x.jsx)(C,{})}));
+`;function S(){let e=(0,_.useRef)(null);return(0,_.useEffect)(()=>{let t=e.current;if(!t)return;let n=t.getContext(`2d`),r,i=t.width=window.innerWidth,a=t.height=window.innerHeight,o=Array.from({length:45},()=>({x:Math.random()*i,y:Math.random()*a,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3,size:Math.random()*2+.5})),s=()=>{n.clearRect(0,0,i,a);for(let e=0;e<o.length;e++)for(let t=e+1;t<o.length;t++){let r=o[e].x-o[t].x,i=o[e].y-o[t].y,a=Math.sqrt(r*r+i*i);a<110&&(n.beginPath(),n.moveTo(o[e].x,o[e].y),n.lineTo(o[t].x,o[t].y),n.strokeStyle=`rgba(56, 189, 248, ${.08*(1-a/110)})`,n.lineWidth=.6,n.stroke())}o.forEach(e=>{e.x+=e.vx,e.y+=e.vy,e.x<0&&(e.x=i),e.x>i&&(e.x=0),e.y<0&&(e.y=a),e.y>a&&(e.y=0),n.beginPath(),n.arc(e.x,e.y,e.size,0,Math.PI*2),n.fillStyle=`rgba(56, 189, 248, 0.5)`,n.fill()}),r=requestAnimationFrame(s)};s();let c=()=>{i=t.width=window.innerWidth,a=t.height=window.innerHeight};return window.addEventListener(`resize`,c),()=>{cancelAnimationFrame(r),window.removeEventListener(`resize`,c)}},[]),(0,x.jsx)(`canvas`,{ref:e,style:{position:`fixed`,inset:0,pointerEvents:`none`,zIndex:0}})}function C(){let[e,t]=(0,_.useState)(!1),[n,r]=(0,_.useState)(!1),[i,a]=(0,_.useState)(null),[o,s]=(0,_.useState)(0);(0,_.useEffect)(()=>{document.title=`AI ASTRA | AI Employees That Work 24/7`;let e=document.querySelector(`meta[name="description"]`);if(e)e.setAttribute(`content`,`AI ASTRA deploys 24/7 AI Chatbots, WhatsApp Automation, and AI Voice Agents to scale your leads and operations.`);else{let e=document.createElement(`meta`);e.name=`description`,e.content=`AI ASTRA deploys 24/7 AI Chatbots, WhatsApp Automation, and AI Voice Agents to scale your leads and operations.`,document.head.appendChild(e)}},[]);let c=e=>{e.preventDefault(),r(!0),setTimeout(()=>{r(!1),t(!1)},2500)},l=[{name:`Marcus Vance`,role:`VP of Growth, FinTech Corp`,content:`AI ASTRA's voice agents completely automated our first-touch lead qualification. Our conversion rate jumped by 38% in the first month.`,avatar:`⚡`},{name:`Elena Rostova`,role:`Operations Lead, HealthCare Plus`,content:`The WhatsApp automation system handles patient inquiry routing 24/7 with zero latency. It feels like having a 10-person support desk overnight.`,avatar:`🏥`},{name:`David Chen`,role:`Founder, Apex Real Estate`,content:`No missed leads on weekends anymore. AI ASTRA captures and schedules property walkthroughs automatically. Absolutely essential tech.`,avatar:`🏠`}];return(0,x.jsxs)(`div`,{style:{backgroundColor:`#030712`,minHeight:`100vh`,color:`#fff`,position:`relative`},className:`grid-bg`,children:[(0,x.jsx)(`style`,{children:ee}),(0,x.jsx)(S,{}),(0,x.jsxs)(`a`,{href:`https://wa.me/?text=Hello%20AI%20ASTRA,%20I%20would%20like%20to%20know%20more%20about%20your%20AI%20Automation%20Services.`,target:`_blank`,rel:`noopener noreferrer`,className:`whatsapp-btn`,"aria-label":`Chat With AI ASTRA`,children:[(0,x.jsx)(`span`,{className:`whatsapp-tooltip`,children:`Chat With AI ASTRA`}),(0,x.jsx)(`svg`,{width:`28`,height:`28`,fill:`currentColor`,viewBox:`0 0 24 24`,children:(0,x.jsx)(`path`,{d:`M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z`})})]}),e&&(0,x.jsx)(`div`,{className:`modal-overlay`,children:(0,x.jsxs)(`div`,{className:`glass-card`,style:{maxWidth:`500px`,width:`100%`,padding:`32px`,position:`relative`,border:`1px solid rgba(56, 189, 248, 0.4)`},children:[(0,x.jsx)(`button`,{onClick:()=>t(!1),style:{position:`absolute`,top:`16px`,right:`20px`,background:`none`,border:`none`,color:`#94a3b8`,fontSize:`24px`,cursor:`pointer`},children:`×`}),n?(0,x.jsxs)(`div`,{style:{textAlign:`center`,padding:`20px 0`},children:[(0,x.jsx)(`div`,{style:{fontSize:`48px`,marginBottom:`16px`},children:`⚡`}),(0,x.jsx)(`h3`,{style:{fontSize:`24px`,fontWeight:`800`,marginBottom:`10px`,color:`#38BDF8`},children:`Audit Request Transmitted`}),(0,x.jsx)(`p`,{style:{color:`#94a3b8`,fontSize:`14px`},children:`Our AI engineering team will analyze your setup and respond within 2 hours.`})]}):(0,x.jsxs)(`div`,{children:[(0,x.jsx)(`h3`,{style:{fontSize:`24px`,fontWeight:`800`,marginBottom:`8px`},children:`Book Free AI Audit`}),(0,x.jsx)(`p`,{style:{color:`#94a3b8`,fontSize:`13px`,marginBottom:`24px`},children:`Discover custom AI employees built for your business.`}),(0,x.jsxs)(`form`,{onSubmit:c,style:{display:`grid`,gap:`14px`},children:[(0,x.jsx)(`input`,{type:`text`,required:!0,placeholder:`Your Full Name *`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}}),(0,x.jsx)(`input`,{type:`email`,required:!0,placeholder:`Work Email *`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}}),(0,x.jsx)(`input`,{type:`tel`,placeholder:`Phone Number`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}}),(0,x.jsx)(`input`,{type:`text`,placeholder:`Company Name`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}}),(0,x.jsx)(`button`,{type:`submit`,className:`btn-primary`,style:{marginTop:`8px`},children:`Confirm AI Audit Call →`})]})]})]})}),(0,x.jsxs)(`nav`,{style:{position:`fixed`,top:0,width:`100%`,zIndex:50,padding:`16px 50px`,display:`flex`,justifyContent:`space-between`,alignItems:`center`,background:`rgba(3, 7, 18, 0.85)`,backdropFilter:`blur(20px)`,borderBottom:`1px solid rgba(255, 255, 255, 0.08)`},children:[(0,x.jsxs)(`div`,{style:{display:`flex`,alignItems:`center`,gap:`12px`},children:[(0,x.jsx)(`img`,{src:y,alt:`AI ASTRA Logo`,style:{height:`38px`,width:`auto`,objectFit:`contain`}}),(0,x.jsx)(`span`,{style:{fontSize:`18px`,fontWeight:`900`,letterSpacing:`2px`,color:`#fff`},children:`AI ASTRA`})]}),(0,x.jsxs)(`div`,{className:`nav-links`,style:{display:`flex`,gap:`32px`,fontSize:`13px`,fontWeight:`600`,textTransform:`uppercase`,letterSpacing:`1px`,color:`#94a3b8`},children:[(0,x.jsx)(`a`,{href:`#services`,style:{color:`inherit`,textDecoration:`none`},children:`Services`}),(0,x.jsx)(`a`,{href:`#industries`,style:{color:`inherit`,textDecoration:`none`},children:`Industries`}),(0,x.jsx)(`a`,{href:`#why-us`,style:{color:`inherit`,textDecoration:`none`},children:`Why Us`}),(0,x.jsx)(`a`,{href:`#process`,style:{color:`inherit`,textDecoration:`none`},children:`Process`}),(0,x.jsx)(`a`,{href:`#contact`,style:{color:`inherit`,textDecoration:`none`},children:`Contact`})]}),(0,x.jsx)(`button`,{onClick:()=>t(!0),className:`btn-primary`,style:{padding:`10px 22px`,fontSize:`12px`},children:`Book Free AI Audit →`})]}),(0,x.jsxs)(`section`,{id:`home`,className:`hero-section section-padding`,style:{paddingTop:`170px`,paddingBottom:`90px`,paddingLeft:`50px`,paddingRight:`50px`,maxWidth:`1350px`,margin:`0 auto`,display:`grid`,gridTemplateColumns:`1.1fr 0.9fr`,gap:`50px`,alignItems:`center`,zIndex:10,position:`relative`},children:[(0,x.jsxs)(`div`,{children:[(0,x.jsxs)(`div`,{style:{display:`inline-flex`,alignItems:`center`,gap:`10px`,padding:`8px 18px`,borderRadius:`30px`,background:`rgba(37, 99, 235, 0.12)`,border:`1px solid rgba(56, 189, 248, 0.3)`,color:`#38BDF8`,fontSize:`11px`,fontFamily:`JetBrains Mono`,letterSpacing:`2px`,marginBottom:`24px`,fontWeight:`600`},children:[(0,x.jsx)(`span`,{style:{width:`8px`,height:`8px`,borderRadius:`50%`,background:`#38BDF8`,boxShadow:`0 0 12px #38BDF8`}}),`AI EMPLOYEES THAT WORK 24/7`]}),(0,x.jsxs)(`h1`,{style:{fontSize:`56px`,fontWeight:`900`,lineHeight:`1.1`,marginBottom:`20px`,letterSpacing:`-1.5px`},children:[`Automate Operations. `,(0,x.jsx)(`br`,{}),(0,x.jsx)(`span`,{className:`glow-text-cyan`,children:`Scale Revenue 24/7.`})]}),(0,x.jsx)(`p`,{style:{fontSize:`16px`,color:`#94a3b8`,lineHeight:`1.65`,maxWidth:`530px`,marginBottom:`36px`,fontWeight:`300`},children:`Deploy custom autonomous AI Chatbots, WhatsApp Automation, and AI Voice Agents designed to capture leads, answer inquiries, and streamline workflows around the clock.`}),(0,x.jsxs)(`div`,{className:`hero-btn-container`,style:{display:`flex`,gap:`16px`,marginBottom:`40px`},children:[(0,x.jsx)(`button`,{onClick:()=>t(!0),className:`btn-primary`,children:`Book Free AI Audit →`}),(0,x.jsx)(`a`,{href:`#contact`,className:`btn-secondary`,children:`Schedule Consultation ›`})]})]}),(0,x.jsxs)(`div`,{style:{display:`flex`,justifyContent:`center`,alignItems:`center`,position:`relative`},children:[(0,x.jsx)(`div`,{className:`hero-orb`}),(0,x.jsx)(`div`,{style:{position:`relative`,zIndex:2,padding:`10px`},children:(0,x.jsx)(`img`,{src:y,style:{width:`100%`,maxWidth:`420px`,height:`auto`,filter:`drop-shadow(0 0 50px rgba(56, 189, 248, 0.5))`},alt:`AI ASTRA Emblem`})})]})]}),(0,x.jsx)(`section`,{style:{padding:`20px 50px`,maxWidth:`1350px`,margin:`0 auto`,position:`relative`,zIndex:10},children:(0,x.jsx)(`div`,{className:`grid-4`,style:{display:`grid`,gridTemplateColumns:`repeat(4, 1fr)`,gap:`16px`},children:[{icon:`⚡`,title:`24/7 Availability`,desc:`Zero downtime operations`},{icon:`🤖`,title:`AI Powered`,desc:`Autonomous neural models`},{icon:`📈`,title:`Lead Generation`,desc:`High-intent lead capture`},{icon:`⚙️`,title:`Business Automation`,desc:`Eliminate repetitive tasks`}].map((e,t)=>(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`20px 24px`,display:`flex`,alignItems:`center`,gap:`16px`},children:[(0,x.jsx)(`span`,{style:{fontSize:`28px`},children:e.icon}),(0,x.jsxs)(`div`,{children:[(0,x.jsx)(`div`,{style:{fontSize:`14px`,fontWeight:`800`,color:`#fff`},children:e.title}),(0,x.jsx)(`div`,{style:{fontSize:`11px`,color:`#64748b`,marginTop:`2px`},children:e.desc})]})]},t))})}),(0,x.jsxs)(`section`,{id:`services`,className:`section-padding`,style:{padding:`100px 50px`,maxWidth:`1350px`,margin:`0 auto`,position:`relative`,zIndex:10},children:[(0,x.jsxs)(`div`,{style:{textAlign:`center`,marginBottom:`60px`},children:[(0,x.jsx)(`div`,{style:{color:`#38BDF8`,fontSize:`12px`,fontFamily:`JetBrains Mono`,letterSpacing:`3px`,marginBottom:`12px`,fontWeight:`700`},children:`CORE SERVICES`}),(0,x.jsx)(`h2`,{style:{fontSize:`36px`,fontWeight:`900`},children:`AI Workforce Solutions`})]}),(0,x.jsx)(`div`,{className:`grid-3`,style:{display:`grid`,gridTemplateColumns:`repeat(3, 1fr)`,gap:`24px`},children:[{icon:`💬`,title:`1. AI Chatbots`,desc:`Intelligent website and platform chatbots trained on your internal data to answer complex customer queries and capture leads instantly.`},{icon:`📲`,title:`2. WhatsApp Automation`,desc:`Automated end-to-end messaging pipelines, lead routing, CRM synchronization, and broadcast support directly inside WhatsApp.`},{icon:`🎙️`,title:`3. AI Voice Agents`,desc:`Ultra-realistic, human-sounding voice bots capable of conducting inbound customer support and outbound sales calls effortlessly.`}].map((e,n)=>(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`36px`,display:`flex`,flexDirection:`column`,justifyContent:`space-between`},children:[(0,x.jsxs)(`div`,{children:[(0,x.jsx)(`div`,{style:{fontSize:`36px`,marginBottom:`16px`},children:e.icon}),(0,x.jsx)(`h3`,{style:{fontSize:`20px`,fontWeight:`800`,marginBottom:`12px`},children:e.title}),(0,x.jsx)(`p`,{style:{color:`#94a3b8`,fontSize:`14px`,lineHeight:`1.6`,fontWeight:`300`,marginBottom:`24px`},children:e.desc})]}),(0,x.jsx)(`button`,{onClick:()=>t(!0),className:`btn-secondary`,style:{width:`100%`,fontSize:`12px`},children:`Deploy Service →`})]},n))})]}),(0,x.jsxs)(`section`,{id:`industries`,className:`section-padding`,style:{padding:`80px 50px`,maxWidth:`1350px`,margin:`0 auto`,position:`relative`,zIndex:10},children:[(0,x.jsxs)(`div`,{style:{textAlign:`center`,marginBottom:`60px`},children:[(0,x.jsx)(`div`,{style:{color:`#38BDF8`,fontSize:`12px`,fontFamily:`JetBrains Mono`,letterSpacing:`3px`,marginBottom:`12px`,fontWeight:`700`},children:`TAILORED DEPLOYMENT`}),(0,x.jsx)(`h2`,{style:{fontSize:`36px`,fontWeight:`900`},children:`Industries We Serve`})]}),(0,x.jsx)(`div`,{className:`grid-3`,style:{display:`grid`,gridTemplateColumns:`repeat(3, 1fr)`,gap:`24px`},children:[{icon:`🏠`,name:`Real Estate`,desc:`Automate property inquiries, site visit bookings, and buyer qualification.`},{icon:`🏥`,name:`Healthcare`,desc:`24/7 patient appointment scheduling, FAQ handling, and intake automation.`},{icon:`🎓`,name:`Education`,desc:`Automate student admissions guidance, course information, and enrollment.`},{icon:`🛒`,name:`E-commerce`,desc:`Instant order tracking, product recommendations, and cart recovery.`},{icon:`💼`,name:`Consulting`,desc:`Pre-qualify high-value clients and streamline consultation calendar booking.`},{icon:`🏢`,name:`Local Businesses`,desc:`Capture inbound phone calls, local service queries, and quote requests.`}].map((e,t)=>(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`30px`},children:[(0,x.jsx)(`div`,{style:{fontSize:`36px`,marginBottom:`14px`},children:e.icon}),(0,x.jsx)(`h3`,{style:{fontSize:`18px`,fontWeight:`800`,marginBottom:`8px`},children:e.name}),(0,x.jsx)(`p`,{style:{color:`#94a3b8`,fontSize:`13px`,lineHeight:`1.6`},children:e.desc})]},t))})]}),(0,x.jsxs)(`section`,{id:`why-us`,className:`section-padding`,style:{padding:`90px 50px`,maxWidth:`1200px`,margin:`0 auto`,position:`relative`,zIndex:10},children:[(0,x.jsxs)(`div`,{style:{textAlign:`center`,marginBottom:`60px`},children:[(0,x.jsx)(`div`,{style:{color:`#38BDF8`,fontSize:`12px`,fontFamily:`JetBrains Mono`,letterSpacing:`3px`,marginBottom:`12px`,fontWeight:`700`},children:`COMPETITIVE ADVANTAGE`}),(0,x.jsx)(`h2`,{style:{fontSize:`36px`,fontWeight:`900`},children:`Traditional vs AI-Powered Business`})]}),(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`40px`,border:`1px solid rgba(56, 189, 248, 0.25)`},children:[(0,x.jsxs)(`div`,{style:{display:`grid`,gridTemplateColumns:`1fr 1fr`,gap:`30px`,paddingBottom:`20px`,borderBottom:`1px solid rgba(255,255,255,0.08)`,fontWeight:`800`,fontSize:`16px`},children:[(0,x.jsx)(`div`,{style:{color:`#ef4444`},children:`Traditional Business`}),(0,x.jsx)(`div`,{style:{color:`#38BDF8`},children:`AI ASTRA Powered Business`})]}),[{trad:`Slow Manual Response Times`,ai:`⚡ Instant <2s Response Rate`},{trad:`Missed After-Hours Leads`,ai:`📈 100% Automated Lead Capture`},{trad:`Repetitive Manual Workflows`,ai:`⚙️ End-to-End Task Automation`},{trad:`Limited 8-Hour Staffing`,ai:`🤖 24/7 Uninterrupted Operations`}].map((e,t)=>(0,x.jsxs)(`div`,{style:{display:`grid`,gridTemplateColumns:`1fr 1fr`,gap:`30px`,padding:`18px 0`,borderBottom:t===3?`none`:`1px solid rgba(255,255,255,0.04)`,fontSize:`14px`},children:[(0,x.jsxs)(`div`,{style:{color:`#94a3b8`,display:`flex`,alignItems:`center`,gap:`8px`},children:[(0,x.jsx)(`span`,{style:{color:`#ef4444`},children:`✕`}),` `,e.trad]}),(0,x.jsxs)(`div`,{style:{color:`#ffffff`,fontWeight:`600`,display:`flex`,alignItems:`center`,gap:`8px`},children:[(0,x.jsx)(`span`,{style:{color:`#38BDF8`},children:`✓`}),` `,e.ai]})]},t))]}),(0,x.jsx)(`div`,{style:{textAlign:`center`,marginTop:`36px`},children:(0,x.jsx)(`button`,{onClick:()=>t(!0),className:`btn-primary`,children:`Upgrade Your Business To AI →`})})]}),(0,x.jsxs)(`section`,{id:`process`,className:`section-padding`,style:{padding:`90px 50px`,maxWidth:`1350px`,margin:`0 auto`,position:`relative`,zIndex:10},children:[(0,x.jsxs)(`div`,{style:{textAlign:`center`,marginBottom:`60px`},children:[(0,x.jsx)(`div`,{style:{color:`#38BDF8`,fontSize:`12px`,fontFamily:`JetBrains Mono`,letterSpacing:`3px`,marginBottom:`12px`,fontWeight:`700`},children:`METHODOLOGY`}),(0,x.jsx)(`h2`,{style:{fontSize:`36px`,fontWeight:`900`},children:`Our 4-Step Deployment Roadmap`})]}),(0,x.jsx)(`div`,{className:`grid-4`,style:{display:`grid`,gridTemplateColumns:`repeat(4, 1fr)`,gap:`20px`},children:[{num:`01`,title:`Business Audit`,desc:`We map out your current sales funnel, customer touchpoints, and repetitive tasks.`},{num:`02`,title:`AI Strategy`,desc:`Custom architecture design defining prompts, tool connections, and data privacy limits.`},{num:`03`,title:`Implementation`,desc:`Full engineering buildout, system training, and seamless CRM/API integrations.`},{num:`04`,title:`Optimization`,desc:`Continuous model refinement, active response monitoring, and performance scaling.`}].map((e,t)=>(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`28px`},children:[(0,x.jsxs)(`div`,{style:{fontSize:`13px`,fontWeight:`800`,color:`#38BDF8`,fontFamily:`JetBrains Mono`,marginBottom:`14px`},children:[`STEP `,e.num]}),(0,x.jsx)(`h3`,{style:{fontSize:`18px`,fontWeight:`800`,marginBottom:`10px`},children:e.title}),(0,x.jsx)(`p`,{style:{fontSize:`13px`,color:`#94a3b8`,lineHeight:`1.6`},children:e.desc})]},t))})]}),(0,x.jsxs)(`section`,{className:`section-padding`,style:{padding:`90px 50px`,maxWidth:`1350px`,margin:`0 auto`,position:`relative`,zIndex:10},children:[(0,x.jsxs)(`div`,{style:{textAlign:`center`,marginBottom:`60px`},children:[(0,x.jsx)(`div`,{style:{color:`#38BDF8`,fontSize:`12px`,fontFamily:`JetBrains Mono`,letterSpacing:`3px`,marginBottom:`12px`,fontWeight:`700`},children:`PERFORMANCE DASHBOARD`}),(0,x.jsx)(`h2`,{style:{fontSize:`36px`,fontWeight:`900`},children:`Potential Business Impact`})]}),(0,x.jsx)(`div`,{className:`grid-4`,style:{display:`grid`,gridTemplateColumns:`repeat(4, 1fr)`,gap:`20px`},children:[{stat:`< 2s`,title:`Faster Response Times`,desc:`Zero wait times for inbound prospect questions.`},{stat:`3.5x`,title:`More Qualified Leads`,desc:`Automated qualification before calendar booking.`},{stat:`90%`,title:`Automated Support`,desc:`Routine inquiries handled without human staff.`},{stat:`+45%`,title:`Higher Conversion Potential`,desc:`Immediate engagement prevents lead dropoff.`}].map((e,t)=>(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`30px`,textAlign:`center`,border:`1px solid rgba(56, 189, 248, 0.2)`},children:[(0,x.jsx)(`div`,{style:{fontSize:`38px`,fontWeight:`900`,color:`#38BDF8`,fontFamily:`JetBrains Mono`,marginBottom:`10px`},children:e.stat}),(0,x.jsx)(`h3`,{style:{fontSize:`16px`,fontWeight:`800`,marginBottom:`8px`},children:e.title}),(0,x.jsx)(`p`,{style:{fontSize:`12px`,color:`#64748b`,lineHeight:`1.5`},children:e.desc})]},t))}),(0,x.jsx)(`div`,{style:{textAlign:`center`,marginTop:`40px`},children:(0,x.jsx)(`button`,{onClick:()=>t(!0),className:`btn-primary`,children:`Schedule Free Strategy Session →`})})]}),(0,x.jsxs)(`section`,{className:`section-padding`,style:{padding:`90px 50px`,maxWidth:`900px`,margin:`0 auto`,position:`relative`,zIndex:10},children:[(0,x.jsxs)(`div`,{style:{textAlign:`center`,marginBottom:`50px`},children:[(0,x.jsx)(`div`,{style:{color:`#38BDF8`,fontSize:`12px`,fontFamily:`JetBrains Mono`,letterSpacing:`3px`,marginBottom:`12px`,fontWeight:`700`},children:`TESTIMONIALS`}),(0,x.jsx)(`h2`,{style:{fontSize:`36px`,fontWeight:`900`},children:`Validated By Industry Leaders`})]}),(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`40px`,position:`relative`,textAlign:`center`},children:[(0,x.jsx)(`div`,{style:{fontSize:`32px`,marginBottom:`16px`},children:l[o].avatar}),(0,x.jsxs)(`p`,{style:{fontSize:`17px`,lineHeight:`1.6`,color:`#e2e8f0`,fontStyle:`italic`,marginBottom:`24px`,fontWeight:`300`},children:[`"`,l[o].content,`"`]}),(0,x.jsx)(`div`,{style:{fontWeight:`800`,fontSize:`16px`,color:`#fff`},children:l[o].name}),(0,x.jsx)(`div`,{style:{fontSize:`12px`,color:`#38BDF8`,fontFamily:`JetBrains Mono`,marginTop:`4px`},children:l[o].role}),(0,x.jsx)(`div`,{style:{display:`flex`,justifyContent:`center`,gap:`12px`,marginTop:`28px`},children:l.map((e,t)=>(0,x.jsx)(`button`,{onClick:()=>s(t),style:{width:t===o?`28px`:`10px`,height:`10px`,borderRadius:`5px`,background:t===o?`#38BDF8`:`rgba(255,255,255,0.2)`,border:`none`,cursor:`pointer`,transition:`all 0.3s ease`}},t))})]})]}),(0,x.jsxs)(`section`,{className:`section-padding`,style:{padding:`90px 50px`,maxWidth:`900px`,margin:`0 auto`,position:`relative`,zIndex:10},children:[(0,x.jsxs)(`div`,{style:{textAlign:`center`,marginBottom:`60px`},children:[(0,x.jsx)(`div`,{style:{color:`#38BDF8`,fontSize:`12px`,fontFamily:`JetBrains Mono`,letterSpacing:`3px`,marginBottom:`12px`,fontWeight:`700`},children:`KNOWLEDGE BASE`}),(0,x.jsx)(`h2`,{style:{fontSize:`36px`,fontWeight:`900`},children:`Frequently Asked Questions`})]}),(0,x.jsx)(`div`,{style:{display:`grid`,gap:`16px`},children:[{q:`What is an AI Chatbot?`,a:`An AI Chatbot is an autonomous digital agent trained on your business data to interact with visitors, answer queries, capture lead details, and book appointments 24/7.`},{q:`How long does setup take?`,a:`Our standard deployment cycle takes 5 to 10 business days, including data auditing, custom model training, integration, and security testing.`},{q:`Can AI answer customer questions?`,a:`Yes. Our AI models process your documentation, FAQs, and database to provide precise, human-like answers tailored to your brand voice.`},{q:`Can AI qualify leads?`,a:`Absolutely. The AI asks strategic qualification questions, filters high-intent buyers, and routes them directly to your CRM or scheduling calendar.`},{q:`Do I need technical knowledge?`,a:`Zero technical knowledge required. Our team handles complete end-to-end architecture, API integrations, and ongoing maintenance.`}].map((e,t)=>(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`20px 28px`,cursor:`pointer`},onClick:()=>a(i===t?null:t),children:[(0,x.jsxs)(`div`,{style:{display:`flex`,justifyContent:`space-between`,alignItems:`center`,fontWeight:`700`,fontSize:`16px`},children:[(0,x.jsx)(`span`,{children:e.q}),(0,x.jsx)(`span`,{style:{color:`#38BDF8`,fontSize:`20px`},children:i===t?`−`:`+`})]}),i===t&&(0,x.jsx)(`p`,{style:{marginTop:`14px`,color:`#94a3b8`,fontSize:`14px`,lineHeight:`1.6`,fontWeight:`300`,borderTop:`1px solid rgba(255,255,255,0.06)`,paddingTop:`14px`},children:e.a})]},t))})]}),(0,x.jsx)(`section`,{id:`contact`,className:`section-padding`,style:{padding:`100px 50px`,maxWidth:`1000px`,margin:`0 auto`,position:`relative`,zIndex:10},children:(0,x.jsxs)(`div`,{className:`glass-card`,style:{padding:`50px 36px`,textAlign:`center`,background:`linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(37, 99, 235, 0.15) 100%)`,border:`1px solid rgba(56, 189, 248, 0.3)`},children:[(0,x.jsx)(`h2`,{style:{fontSize:`36px`,fontWeight:`900`,marginBottom:`10px`},children:`Let's Build Your AI System`}),(0,x.jsx)(`p`,{style:{color:`#94a3b8`,fontSize:`15px`,marginBottom:`36px`},children:`Book a free consultation and discover how AI can help your business grow.`}),(0,x.jsxs)(`form`,{style:{display:`grid`,gap:`16px`,textAlign:`left`,maxWidth:`650px`,margin:`0 auto`},onSubmit:c,children:[(0,x.jsxs)(`div`,{className:`grid-2`,style:{display:`grid`,gridTemplateColumns:`1fr 1fr`,gap:`16px`},children:[(0,x.jsx)(`input`,{type:`text`,required:!0,placeholder:`Name *`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}}),(0,x.jsx)(`input`,{type:`email`,required:!0,placeholder:`Email *`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}})]}),(0,x.jsxs)(`div`,{className:`grid-2`,style:{display:`grid`,gridTemplateColumns:`1fr 1fr`,gap:`16px`},children:[(0,x.jsx)(`input`,{type:`tel`,placeholder:`Phone`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}}),(0,x.jsx)(`input`,{type:`text`,placeholder:`Business Name`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`}})]}),(0,x.jsx)(`textarea`,{rows:`4`,placeholder:`Message / Business Goals`,style:{width:`100%`,padding:`14px 18px`,borderRadius:`12px`,background:`rgba(255,255,255,0.03)`,border:`1px solid rgba(255,255,255,0.1)`,color:`#fff`,fontSize:`14px`,outline:`none`,resize:`none`}}),(0,x.jsx)(`button`,{type:`submit`,className:`btn-primary`,style:{width:`100%`,fontSize:`14px`,padding:`16px`},children:`Book Free AI Audit ⚡`})]})]})}),(0,x.jsxs)(`footer`,{className:`section-padding`,style:{padding:`60px 50px 30px`,borderTop:`1px solid rgba(255,255,255,0.08)`,position:`relative`,zIndex:10},children:[(0,x.jsxs)(`div`,{style:{maxWidth:`1200px`,margin:`0 auto`,display:`grid`,gridTemplateColumns:`1.5fr 1fr 1fr 1fr`,gap:`40px`,marginBottom:`50px`},className:`grid-4`,children:[(0,x.jsxs)(`div`,{children:[(0,x.jsxs)(`div`,{style:{display:`flex`,alignItems:`center`,gap:`12px`,marginBottom:`16px`},children:[(0,x.jsx)(`img`,{src:y,alt:`AI ASTRA Logo`,style:{height:`32px`,width:`auto`}}),(0,x.jsx)(`span`,{style:{fontSize:`18px`,fontWeight:`900`,letterSpacing:`2px`},children:`AI ASTRA`})]}),(0,x.jsx)(`p`,{style:{color:`#64748b`,fontSize:`13px`,lineHeight:`1.6`,maxWidth:`280px`},children:`Architecting 24/7 autonomous AI Chatbots, WhatsApp Automation, and Voice Agents for enterprise growth.`})]}),(0,x.jsxs)(`div`,{children:[(0,x.jsx)(`h4`,{style:{fontSize:`14px`,fontWeight:`800`,marginBottom:`16px`,color:`#fff`},children:`Services`}),(0,x.jsxs)(`div`,{style:{display:`grid`,gap:`10px`,fontSize:`13px`,color:`#94a3b8`},children:[(0,x.jsx)(`div`,{children:`AI Chatbots`}),(0,x.jsx)(`div`,{children:`WhatsApp Automation`}),(0,x.jsx)(`div`,{children:`AI Voice Agents`})]})]}),(0,x.jsxs)(`div`,{children:[(0,x.jsx)(`h4`,{style:{fontSize:`14px`,fontWeight:`800`,marginBottom:`16px`,color:`#fff`},children:`Industries`}),(0,x.jsxs)(`div`,{style:{display:`grid`,gap:`10px`,fontSize:`13px`,color:`#94a3b8`},children:[(0,x.jsx)(`div`,{children:`Real Estate`}),(0,x.jsx)(`div`,{children:`Healthcare`}),(0,x.jsx)(`div`,{children:`E-commerce`}),(0,x.jsx)(`div`,{children:`Consulting`})]})]}),(0,x.jsxs)(`div`,{children:[(0,x.jsx)(`h4`,{style:{fontSize:`14px`,fontWeight:`800`,marginBottom:`16px`,color:`#fff`},children:`Connect`}),(0,x.jsxs)(`div`,{style:{display:`grid`,gap:`10px`,fontSize:`13px`,color:`#94a3b8`},children:[(0,x.jsx)(`div`,{children:`Instagram`}),(0,x.jsx)(`div`,{children:`LinkedIn`}),(0,x.jsx)(`div`,{children:`contact@aiastra.com`})]})]})]}),(0,x.jsxs)(`div`,{style:{maxWidth:`1200px`,margin:`0 auto`,borderTop:`1px solid rgba(255,255,255,0.05)`,paddingTop:`24px`,display:`flex`,justifyContent:`space-between`,fontSize:`12px`,color:`#64748b`,flexWrap:`wrap`,gap:`10px`},children:[(0,x.jsx)(`span`,{children:`© 2026 AI ASTRA. All rights reserved.`}),(0,x.jsxs)(`div`,{style:{display:`flex`,gap:`20px`},children:[(0,x.jsx)(`span`,{children:`Privacy Policy`}),(0,x.jsx)(`span`,{children:`Terms of Service`})]})]})]})]})}(0,v.createRoot)(document.getElementById(`root`)).render((0,x.jsx)(_.StrictMode,{children:(0,x.jsx)(C,{})}));
