@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+// --- ULTRA-PREMIUM LUXURY STYLES ---
 const customStyles = `
   @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
@@ -17,92 +18,126 @@ const customStyles = `
     overflow-x: hidden;
   }
 
-  /* GLOW TEXT EFFECTS */
-  .hero-title-blue {
-    background: linear-gradient(135deg, #38BDF8 0%, #1E90FF 50%, #60A5FA 100%);
+  /* GLOWING TEXT EFFECTS */
+  .glow-text-cyan {
+    background: linear-gradient(135deg, #ffffff 0%, #38BDF8 50%, #1E90FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 30px rgba(30, 144, 255, 0.6));
+    filter: drop-shadow(0 0 35px rgba(56, 189, 248, 0.5));
   }
 
-  /* GLASS CARDS */
+  .glow-text-silver {
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #64748b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* GLASS CARDS & CONTAINERS */
   .glass-card {
-    background: rgba(15, 23, 42, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 24px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
   .glass-card:hover {
-    border-color: rgba(56, 189, 248, 0.3);
-    transform: translateY(-6px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 30px rgba(30, 144, 255, 0.15);
+    background: rgba(15, 23, 42, 0.65);
+    border-color: rgba(56, 189, 248, 0.4);
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(56, 189, 248, 0.2);
   }
 
-  /* BUTTONS */
-  .btn-blue {
-    background: linear-gradient(135deg, #2563EB 0%, #3B82F6 50%, #60A5FA 100%);
+  /* BUTTON STYLES */
+  .btn-primary {
+    background: linear-gradient(135deg, #0284C7 0%, #2563EB 50%, #38BDF8 100%);
     color: #ffffff;
     font-weight: 700;
-    font-size: 14px;
-    padding: 14px 28px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 14px 32px;
     border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 25px rgba(37, 99, 235, 0.5);
-    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 0 30px rgba(37, 99, 235, 0.5);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     text-decoration: none;
     cursor: pointer;
   }
 
-  .btn-blue:hover {
-    transform: translateY(-2px) scale(1.02);
-    box-shadow: 0 0 40px rgba(59, 130, 246, 0.8);
+  .btn-primary:hover {
+    transform: scale(1.04);
+    box-shadow: 0 0 50px rgba(56, 189, 248, 0.8);
+    border-color: rgba(255, 255, 255, 0.5);
   }
 
-  .btn-outline {
+  .btn-secondary {
     background: rgba(255, 255, 255, 0.03);
-    color: #ffffff;
+    color: #e2e8f0;
     font-weight: 600;
-    font-size: 14px;
-    padding: 14px 28px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    padding: 14px 32px;
     border-radius: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     transition: all 0.3s ease;
     display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     text-decoration: none;
     cursor: pointer;
   }
 
-  .btn-outline:hover {
+  .btn-secondary:hover {
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
   }
 
+  /* GRID & GLOW ORB BACKGROUNDS */
   .grid-bg {
-    background-size: 50px 50px;
+    background-size: 60px 60px;
     background-image: 
       linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
       linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
   }
 
-  .glow-orb-center {
+  .hero-orb {
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 650px;
+    height: 650px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(30, 144, 255, 0.15) 0%, rgba(3, 7, 18, 0) 70%);
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, rgba(56, 189, 248, 0.1) 40%, rgba(3, 7, 18, 0) 70%);
     pointer-events: none;
     z-index: 1;
+    animation: pulseOrb 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes pulseOrb {
+    0% { transform: scale(1); opacity: 0.8; }
+    100% { transform: scale(1.15); opacity: 1; }
+  }
+
+  /* LOGO HERO IMAGE HOVER & GLOW */
+  .hero-logo-img {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 45px rgba(56, 189, 248, 0.45));
+    transition: all 0.5s ease;
+  }
+
+  .hero-logo-img:hover {
+    transform: scale(1.03) rotate(0.5deg);
+    filter: drop-shadow(0 0 65px rgba(56, 189, 248, 0.7));
   }
 `;
 
+// --- INTERACTIVE BACKGROUND PARTICLES ---
 function ParticleCanvas() {
   const canvasRef = useRef(null);
 
@@ -115,11 +150,11 @@ function ParticleCanvas() {
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
-    const particles = Array.from({ length: 70 }, () => ({
+    const particles = Array.from({ length: 65 }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: (Math.random() - 0.5) * 0.4,
+      vx: (Math.random() - 0.5) * 0.3,
+      vy: (Math.random() - 0.5) * 0.3,
       size: Math.random() * 2 + 0.5,
     }));
 
@@ -132,11 +167,11 @@ function ParticleCanvas() {
           const dy = particles[i].y - particles[j].y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
-          if (dist < 120) {
+          if (dist < 130) {
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
             ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(56, 189, 248, ${0.12 * (1 - dist / 120)})`;
+            ctx.strokeStyle = `rgba(56, 189, 248, ${0.1 * (1 - dist / 130)})`;
             ctx.lineWidth = 0.6;
             ctx.stroke();
           }
@@ -154,7 +189,7 @@ function ParticleCanvas() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.6)';
+        ctx.fillStyle = 'rgba(56, 189, 248, 0.5)';
         ctx.fill();
       });
 
@@ -178,294 +213,255 @@ function ParticleCanvas() {
   return <canvas ref={canvasRef} style={{ position: 'fixed', inset: 0, pointerEvents: 'none', zIndex: 0 }} />;
 }
 
+// LOGO IMAGE COMPONENT WITH DOUBLE EXTENSION FALLBACK
+function BrandLogoImage({ style, alt }) {
+  return (
+    <img 
+      src="/logo.png" 
+      onError={(e) => { 
+        e.target.onerror = null; 
+        e.target.src = "/logo.png.png"; 
+      }} 
+      alt={alt || "ASTRA AI Logo"} 
+      style={style} 
+    />
+  );
+}
+
 export default function App() {
   return (
     <div style={{ backgroundColor: '#030712', minHeight: '100vh', color: '#fff', position: 'relative' }} className="grid-bg">
       <style>{customStyles}</style>
       <ParticleCanvas />
 
-      {/* NAVBAR */}
+      {/* NAVIGATION BAR */}
       <nav style={{
         position: 'fixed', top: 0, width: '100%', zIndex: 50,
-        padding: '16px 60px', display: 'flex',
+        padding: '16px 50px', display: 'flex',
         justifyContent: 'space-between', alignItems: 'center',
-        background: 'rgba(3, 7, 18, 0.75)', backdropFilter: 'blur(20px)',
+        background: 'rgba(3, 7, 18, 0.8)', backdropFilter: 'blur(20px)',
         borderBottom: '1px solid rgba(255, 255, 255, 0.08)'
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <img 
-            src="/logo.png" 
-            onError={(e) => { e.target.style.display = 'none'; }}
-            alt="ASTRA AI" 
-            style={{ height: '38px', width: 'auto', objectFit: 'contain' }} 
-          />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+          <BrandLogoImage style={{ height: '42px', width: 'auto', objectFit: 'contain' }} />
           <span style={{ fontSize: '20px', fontWeight: '900', letterSpacing: '3px', color: '#fff' }}>
-            ASTRA <span style={{ color: '#38BDF8', fontSize: '14px', letterSpacing: '2px' }}>AI</span>
+            ASTRA <span style={{ color: '#38BDF8', fontSize: '13px' }}>AI</span>
           </span>
         </div>
 
-        <div style={{ display: 'flex', gap: '32px', fontSize: '13px', fontWeight: '500', color: '#94a3b8' }}>
+        <div style={{ display: 'flex', gap: '32px', fontSize: '13px', fontWeight: '600', textTransform: 'uppercase', letterSpacing: '1px', color: '#94a3b8' }}>
           <a href="#home" style={{ color: '#fff', textDecoration: 'none' }}>Home</a>
-          <a href="#services" style={{ color: 'inherit', textDecoration: 'none' }}>Services</a>
           <a href="#solutions" style={{ color: 'inherit', textDecoration: 'none' }}>Solutions</a>
-          <a href="#work" style={{ color: 'inherit', textDecoration: 'none' }}>Work</a>
-          <a href="#about" style={{ color: 'inherit', textDecoration: 'none' }}>About</a>
+          <a href="#why" style={{ color: 'inherit', textDecoration: 'none' }}>Why Us</a>
+          <a href="#process" style={{ color: 'inherit', textDecoration: 'none' }}>Process</a>
           <a href="#contact" style={{ color: 'inherit', textDecoration: 'none' }}>Contact</a>
         </div>
 
-        <a href="#contact" className="btn-blue" style={{ padding: '10px 22px', fontSize: '13px' }}>
-          Book a Call →
+        <a href="#contact" className="btn-primary" style={{ padding: '10px 24px', fontSize: '12px' }}>
+          Book Free Audit →
         </a>
       </nav>
 
       {/* HERO SECTION */}
-      <section id="home" style={{ paddingTop: '160px', paddingBottom: '100px', paddingLeft: '80px', paddingRight: '80px', maxWidth: '1400px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1.1fr 0.9fr', gap: '40px', alignItems: 'center', zIndex: 10, position: 'relative' }}>
+      <section id="home" style={{
+        paddingTop: '180px', paddingBottom: '110px', paddingLeft: '60px', paddingRight: '60px',
+        maxWidth: '1350px', margin: '0 auto', display: 'grid', gridTemplateColumns: '1.1fr 0.9fr',
+        gap: '50px', alignItems: 'center', zIndex: 10, position: 'relative'
+      }}>
         <div>
-          <h1 style={{ fontSize: '64px', fontWeight: '800', lineHeight: '1.1', marginBottom: '20px', letterSpacing: '-1px' }}>
-            AI That Works.<br />
-            <span className="hero-title-blue">Results That Last.</span>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '10px',
+            padding: '8px 20px', borderRadius: '30px',
+            background: 'rgba(37, 99, 235, 0.12)', border: '1px solid rgba(56, 189, 248, 0.3)',
+            color: '#38BDF8', fontSize: '11px', fontFamily: 'JetBrains Mono', letterSpacing: '2px',
+            marginBottom: '28px', fontWeight: '600'
+          }}>
+            <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#38BDF8', boxShadow: '0 0 12px #38BDF8' }}></span>
+            NEXT-GEN ENTERPRISE AI AGENTS
+          </div>
+
+          <h1 style={{ fontSize: '62px', fontWeight: '900', lineHeight: '1.08', marginBottom: '22px', letterSpacing: '-1.5px' }}>
+            Intelligence <br />
+            <span className="glow-text-cyan">That Empowers.</span>
           </h1>
 
-          <p style={{ fontSize: '16px', color: '#94a3b8', lineHeight: '1.6', maxWidth: '520px', marginBottom: '36px', fontWeight: '400' }}>
-            We build intelligent AI solutions that automate tasks, reduce costs, and scale your business to new heights.
+          <p style={{ fontSize: '17px', color: '#94a3b8', lineHeight: '1.65', maxWidth: '530px', marginBottom: '40px', fontWeight: '300' }}>
+            We architect autonomous AI systems, intelligent voice bots, and automated workflows that scale your business revenue 24/7 with zero operational friction.
           </p>
 
-          <div style={{ display: 'flex', gap: '16px', marginBottom: '60px' }}>
-            <a href="#contact" className="btn-blue">
+          <div style={{ display: 'flex', gap: '18px', marginBottom: '60px' }}>
+            <a href="#contact" className="btn-primary">
               Book a Free Consultation →
             </a>
-            <a href="#work" className="btn-outline">
-              Explore Our Work ›
+            <a href="#solutions" className="btn-secondary">
+              Explore AI Suite ›
             </a>
           </div>
 
-          {/* STATS OVERVIEW */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', paddingTop: '30px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
+          {/* KEY METRICS */}
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', paddingTop: '32px', borderTop: '1px solid rgba(255,255,255,0.08)' }}>
             <div>
-              <div style={{ fontSize: '28px', fontWeight: '800', color: '#fff' }}>50+</div>
-              <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px' }}>Projects Delivered</div>
+              <div style={{ fontSize: '28px', fontWeight: '800', color: '#fff', fontFamily: 'JetBrains Mono' }}>50+</div>
+              <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px', letterSpacing: '0.5px' }}>Deployments</div>
             </div>
             <div>
-              <div style={{ fontSize: '28px', fontWeight: '800', color: '#fff' }}>30+</div>
-              <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px' }}>Happy Clients</div>
+              <div style={{ fontSize: '28px', fontWeight: '800', color: '#38BDF8', fontFamily: 'JetBrains Mono' }}>10x</div>
+              <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px', letterSpacing: '0.5px' }}>Efficiency</div>
             </div>
             <div>
-              <div style={{ fontSize: '28px', fontWeight: '800', color: '#fff' }}>10x</div>
-              <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px' }}>Efficiency Gain</div>
+              <div style={{ fontSize: '28px', fontWeight: '800', color: '#fff', fontFamily: 'JetBrains Mono' }}>&lt;60s</div>
+              <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px', letterSpacing: '0.5px' }}>Response Time</div>
             </div>
             <div>
-              <div style={{ fontSize: '28px', fontWeight: '800', color: '#fff' }}>99.9%</div>
-              <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px' }}>Uptime & Reliability</div>
+              <div style={{ fontSize: '28px', fontWeight: '800', color: '#38BDF8', fontFamily: 'JetBrains Mono' }}>99.9%</div>
+              <div style={{ fontSize: '11px', color: '#64748b', marginTop: '4px', letterSpacing: '0.5px' }}>Uptime</div>
             </div>
           </div>
         </div>
 
-        {/* HERO GRAPHIC RIGHT */}
+        {/* HERO LOGO GRAPHIC */}
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}>
-          <div className="glow-orb-center"></div>
-          <img 
-            src="/logo.png" 
-            alt="ASTRA AI Metallic Emblem" 
-            style={{ 
-              width: '100%', 
-              maxWidth: '480px', 
-              height: 'auto', 
-              objectFit: 'contain',
-              filter: 'drop-shadow(0 0 50px rgba(56, 189, 248, 0.4))',
-              position: 'relative',
-              zIndex: 2
-            }} 
-          />
+          <div className="hero-orb"></div>
+          <div style={{ position: 'relative', zIndex: 2, padding: '20px' }}>
+            <BrandLogoImage className="hero-logo-img" alt="ASTRA AI Emblem" />
+          </div>
         </div>
       </section>
 
-      {/* OUR AI SOLUTIONS */}
-      <section id="solutions" style={{ padding: '80px 80px', maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '32px', fontWeight: '800', marginBottom: '8px' }}>Our AI Solutions</h2>
-          <p style={{ color: '#64748b', fontSize: '14px' }}>Powerful solutions for a smarter tomorrow</p>
+      {/* AI SOLUTIONS SECTION */}
+      <section id="solutions" style={{ padding: '100px 60px', maxWidth: '1350px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
+        <div style={{ textAlign: 'center', marginBottom: '70px' }}>
+          <div style={{ color: '#38BDF8', fontSize: '12px', fontFamily: 'JetBrains Mono', letterSpacing: '3px', marginBottom: '12px', fontWeight: '700' }}>OUR CAPABILITIES</div>
+          <h2 style={{ fontSize: '40px', fontWeight: '900' }}>Autonomous AI Solutions</h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
           {[
             {
               icon: "🤖",
-              title: "AI Agents",
-              desc: "Intelligent agents that automate tasks and handle complex workflows."
+              title: "Autonomous AI Agents",
+              desc: "Self-learning agents capable of executing complex multi-step workflows and customer engagement.",
+              tag: "AGENTS & BOT SUITE"
             },
             {
               icon: "🎙️",
-              title: "Voice AI",
-              desc: "Natural conversations that engage, assist and convert effortlessly."
+              title: "Human-Like Voice AI",
+              desc: "Ultra-realistic telephony voice bots that make outbound sales calls and answer customer inquiries live.",
+              tag: "TELEPHONY & CALLS"
             },
             {
               icon: "⚡",
-              title: "Automation",
-              desc: "Streamline operations and save time with AI-powered automation."
+              title: "Workflow Automation",
+              desc: "Seamless integration across your CRM, WhatsApp, Email, and internal databases to eliminate manual labor.",
+              tag: "PROCESS INTEGRATION"
             }
-          ].map((card, idx) => (
-            <div key={idx} className="glass-card" style={{ padding: '36px' }}>
-              <div style={{
-                width: '44px', height: '44px', borderRadius: '12px',
-                background: 'rgba(56, 189, 248, 0.1)', border: '1px solid rgba(56, 189, 248, 0.2)',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '20px', marginBottom: '24px'
-              }}>
-                {card.icon}
-              </div>
-              <h3 style={{ fontSize: '20px', fontWeight: '700', marginBottom: '12px' }}>{card.title}</h3>
-              <p style={{ color: '#94a3b8', fontSize: '13px', lineHeight: '1.6', marginBottom: '24px' }}>{card.desc}</p>
-              <a href="#contact" style={{ color: '#38BDF8', textDecoration: 'none', fontSize: '16px', fontWeight: '600' }}>→</a>
+          ].map((item, idx) => (
+            <div key={idx} className="glass-card" style={{ padding: '40px' }}>
+              <div style={{ fontSize: '11px', fontFamily: 'JetBrains Mono', color: '#38BDF8', marginBottom: '20px', letterSpacing: '1px' }}>{item.tag}</div>
+              <div style={{ fontSize: '36px', marginBottom: '20px' }}>{item.icon}</div>
+              <h3 style={{ fontSize: '22px', fontWeight: '800', marginBottom: '14px' }}>{item.title}</h3>
+              <p style={{ color: '#94a3b8', fontSize: '14px', lineHeight: '1.65', fontWeight: '300' }}>{item.desc}</p>
             </div>
           ))}
         </div>
 
-        {/* TRUSTED BRANDS */}
-        <div style={{ marginTop: '80px', textAlign: 'center' }}>
-          <div style={{ fontSize: '12px', color: '#64748b', letterSpacing: '1px', marginBottom: '30px' }}>TRUSTED BY INNOVATIVE BRANDS</div>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '50px', opacity: 0.5, flexWrap: 'wrap', fontSize: '14px', fontWeight: '600' }}>
-            <span>Acme Corp</span>
-            <span>Globex</span>
-            <span>InnoSync</span>
-            <span>Vertex</span>
-            <span>Nexora</span>
-            <span>BuildSmart</span>
+        {/* TRUSTED BRAND BAR */}
+        <div style={{ marginTop: '90px', textAlign: 'center' }}>
+          <div style={{ fontSize: '11px', color: '#64748b', letterSpacing: '2px', fontFamily: 'JetBrains Mono', marginBottom: '30px' }}>POWERING NEXT-GEN ENTERPRISES</div>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '60px', opacity: 0.5, flexWrap: 'wrap', fontSize: '15px', fontWeight: '700', letterSpacing: '1px' }}>
+            <span>ACME CORP</span>
+            <span>GLOBEX</span>
+            <span>INNOSYNC</span>
+            <span>VERTEX AI</span>
+            <span>NEXORA</span>
+            <span>BUILDSMART</span>
           </div>
         </div>
       </section>
 
       {/* WHY CHOOSE ASTRA AI */}
-      <section id="about" style={{ padding: '80px 80px', maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
+      <section id="why" style={{ padding: '80px 60px', maxWidth: '1350px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
         <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '32px', fontWeight: '800' }}>Why Choose Astra AI</h2>
+          <h2 style={{ fontSize: '38px', fontWeight: '900' }}>Why Choose Astra AI</h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
           {[
-            { title: "Cutting-Edge AI", desc: "Latest technologies for maximum impact" },
-            { title: "Built for Scale", desc: "Solutions that grow with your business" },
-            { title: "Secure & Reliable", desc: "Enterprise-grade security you can trust" },
-            { title: "24/7 Support", desc: "Always here when you need us" }
-          ].map((item, idx) => (
-            <div key={idx} className="glass-card" style={{ padding: '28px', textAlign: 'center' }}>
-              <h4 style={{ fontSize: '16px', fontWeight: '700', marginBottom: '8px' }}>{item.title}</h4>
-              <p style={{ fontSize: '12px', color: '#64748b', lineHeight: '1.5' }}>{item.desc}</p>
+            { title: "Cutting-Edge AI", desc: "Leveraging state-of-the-art LLMs and neural vision models." },
+            { title: "Built for Scale", desc: "Architected to handle millions of queries with zero latency." },
+            { title: "Bank-Grade Security", desc: "Encrypted data pipelines ensuring complete privacy & compliance." },
+            { title: "24/7 Active Monitoring", desc: "Dedicated support and automatic self-healing agent pipelines." }
+          ].map((card, idx) => (
+            <div key={idx} className="glass-card" style={{ padding: '32px', textAlign: 'center' }}>
+              <h4 style={{ fontSize: '18px', fontWeight: '800', marginBottom: '10px' }}>{card.title}</h4>
+              <p style={{ fontSize: '13px', color: '#64748b', lineHeight: '1.6' }}>{card.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* OUR PROCESS */}
-      <section id="work" style={{ padding: '80px 80px', maxWidth: '1400px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
-        <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-          <h2 style={{ fontSize: '32px', fontWeight: '800', marginBottom: '8px' }}>Our Process</h2>
-          <p style={{ color: '#64748b', fontSize: '14px' }}>A proven journey to powerful results</p>
+      <section id="process" style={{ padding: '100px 60px', maxWidth: '1350px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
+        <div style={{ textAlign: 'center', marginBottom: '70px' }}>
+          <div style={{ color: '#38BDF8', fontSize: '12px', fontFamily: 'JetBrains Mono', letterSpacing: '3px', marginBottom: '12px', fontWeight: '700' }}>ROADMAP</div>
+          <h2 style={{ fontSize: '40px', fontWeight: '900' }}>Our 4-Step Process</h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px' }}>
           {[
-            { step: "01", title: "Discover", desc: "We understand your goals and challenges" },
-            { step: "02", title: "Design", desc: "We create a tailored AI solution for you" },
-            { step: "03", title: "Build", desc: "We develop and test with precision" },
-            { step: "04", title: "Deploy", desc: "We launch and support for ongoing success" }
+            { num: "01", title: "Discovery", desc: "We audit your manual bottlenecks and data infrastructure." },
+            { num: "02", title: "Architecture", desc: "We design custom AI models tailored to your exact business logic." },
+            { num: "03", title: "Integration", desc: "We deploy and thoroughly test agents within your tech stack." },
+            { num: "04", title: "Scale", desc: "Continuous optimization and monitoring for compounding ROI." }
           ].map((proc, idx) => (
-            <div key={idx} className="glass-card" style={{ padding: '28px' }}>
-              <div style={{ fontSize: '12px', color: '#38BDF8', fontWeight: '700', fontFamily: 'JetBrains Mono', marginBottom: '12px' }}>{proc.step}</div>
-              <h4 style={{ fontSize: '18px', fontWeight: '700', marginBottom: '8px' }}>{proc.title}</h4>
-              <p style={{ fontSize: '12px', color: '#64748b', lineHeight: '1.5' }}>{proc.desc}</p>
+            <div key={idx} className="glass-card" style={{ padding: '32px' }}>
+              <div style={{ fontSize: '14px', fontWeight: '800', color: '#38BDF8', fontFamily: 'JetBrains Mono', marginBottom: '16px' }}>{proc.num}</div>
+              <h4 style={{ fontSize: '20px', fontWeight: '800', marginBottom: '10px' }}>{proc.title}</h4>
+              <p style={{ fontSize: '13px', color: '#94a3b8', lineHeight: '1.6' }}>{proc.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section style={{ padding: '80px 80px', maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h2 style={{ fontSize: '32px', fontWeight: '800', marginBottom: '8px' }}>What Our Clients Say</h2>
-          <p style={{ color: '#64748b', fontSize: '14px' }}>Trusted by businesses building a smarter tomorrow</p>
-        </div>
-
-        <div className="glass-card" style={{ padding: '40px', position: 'relative' }}>
-          <div style={{ fontSize: '32px', color: '#38BDF8', marginBottom: '16px' }}>“</div>
-          <p style={{ fontSize: '16px', lineHeight: '1.6', color: '#e2e8f0', marginBottom: '24px' }}>
-            Astra AI transformed our operations and helped us scale faster than we imagined. Their AI solutions are a game changer!
-          </p>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
-            <div style={{ width: '40px', height: '40px', borderRadius: '50%', background: '#38BDF8', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: '700', color: '#000' }}>JC</div>
-            <div>
-              <div style={{ fontSize: '14px', fontWeight: '700' }}>John Carter</div>
-              <div style={{ fontSize: '11px', color: '#64748b' }}>CEO, Acme Corp</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* READY TO BUILD CTA BANNER */}
-      <section id="contact" style={{ padding: '80px 80px', maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
+      {/* CONTACT / CTA BANNER */}
+      <section id="contact" style={{ padding: '100px 60px', maxWidth: '1000px', margin: '0 auto', position: 'relative', zIndex: 10 }}>
         <div className="glass-card" style={{
           padding: '60px', textAlign: 'center',
-          background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 144, 255, 0.1) 100%)',
-          border: '1px solid rgba(56, 189, 248, 0.2)'
+          background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.85) 0%, rgba(37, 99, 235, 0.15) 100%)',
+          border: '1px solid rgba(56, 189, 248, 0.3)'
         }}>
-          <h2 style={{ fontSize: '36px', fontWeight: '800', marginBottom: '12px' }}>Ready to Build the Future?</h2>
-          <p style={{ color: '#94a3b8', fontSize: '14px', marginBottom: '32px' }}>Let's create intelligent solutions that drive real results.</p>
-          <a href="#contact" className="btn-blue">
-            Book a Free Consultation →
-          </a>
+          <h2 style={{ fontSize: '40px', fontWeight: '900', marginBottom: '14px' }}>Ready to Automate Your Empire?</h2>
+          <p style={{ color: '#94a3b8', fontSize: '15px', marginBottom: '40px' }}>Book a 1-on-1 consultation session with our AI engineering team.</p>
+
+          <form style={{ display: 'grid', gap: '20px', textAlign: 'left', maxWidth: '600px', margin: '0 auto' }} onSubmit={(e) => e.preventDefault()}>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+              <input type="text" placeholder="Your Name" style={{ width: '100%', padding: '16px 20px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', fontSize: '14px', outline: 'none' }} />
+              <input type="email" placeholder="Email Address" style={{ width: '100%', padding: '16px 20px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', fontSize: '14px', outline: 'none' }} />
+            </div>
+            <textarea rows="4" placeholder="Describe your business goals..." style={{ width: '100%', padding: '16px 20px', borderRadius: '12px', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', color: '#fff', fontSize: '14px', outline: 'none', resize: 'none' }}></textarea>
+            <button className="btn-primary" style={{ justifyContent: 'center', width: '100%', fontSize: '13px' }}>
+              Transmit Consultation Request 🔱
+            </button>
+          </form>
         </div>
       </section>
 
       {/* FOOTER */}
-      <footer style={{ padding: '60px 80px 30px', borderTop: '1px solid rgba(255,255,255,0.08)', position: 'relative', zIndex: 10 }}>
-        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'grid', gridTemplateColumns: '2fr 1fr 1fr 1fr 1.5fr', gap: '40px', marginBottom: '50px' }}>
-          <div>
-            <div style={{ fontSize: '18px', fontWeight: '900', letterSpacing: '2px', marginBottom: '8px' }}>ASTRA AI</div>
-            <div style={{ fontSize: '11px', color: '#64748b', letterSpacing: '1px' }}>INTELLIGENCE THAT EMPOWERS</div>
+      <footer style={{ padding: '60px 60px 30px', borderTop: '1px solid rgba(255,255,255,0.08)', position: 'relative', zIndex: 10 }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '40px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+            <BrandLogoImage style={{ height: '36px', width: 'auto' }} />
+            <span style={{ fontSize: '18px', fontWeight: '900', letterSpacing: '2px' }}>ASTRA AI</span>
           </div>
 
-          <div>
-            <div style={{ fontSize: '13px', fontWeight: '700', marginBottom: '16px' }}>Company</div>
-            <div style={{ display: 'grid', gap: '8px', fontSize: '12px', color: '#94a3b8' }}>
-              <span>About Us</span>
-              <span>Our Process</span>
-              <span>Careers</span>
-              <span>Blog</span>
-            </div>
-          </div>
-
-          <div>
-            <div style={{ fontSize: '13px', fontWeight: '700', marginBottom: '16px' }}>Services</div>
-            <div style={{ display: 'grid', gap: '8px', fontSize: '12px', color: '#94a3b8' }}>
-              <span>AI Agents</span>
-              <span>Voice AI</span>
-              <span>Automation</span>
-              <span>Integrations</span>
-            </div>
-          </div>
-
-          <div>
-            <div style={{ fontSize: '13px', fontWeight: '700', marginBottom: '16px' }}>Solutions</div>
-            <div style={{ display: 'grid', gap: '8px', fontSize: '12px', color: '#94a3b8' }}>
-              <span>For Startups</span>
-              <span>For Enterprises</span>
-              <span>E-commerce</span>
-              <span>Healthcare</span>
-            </div>
-          </div>
-
-          <div>
-            <div style={{ fontSize: '13px', fontWeight: '700', marginBottom: '16px' }}>Contact</div>
-            <div style={{ display: 'grid', gap: '8px', fontSize: '12px', color: '#94a3b8' }}>
-              <span>hello@astraai.com</span>
-              <span>+91 98765 43210</span>
-              <span>India | Global</span>
-            </div>
+          <div style={{ fontSize: '12px', color: '#64748b', fontFamily: 'JetBrains Mono' }}>
+            INTELLIGENCE THAT EMPOWERS
           </div>
         </div>
 
-        <div style={{ maxWidth: '1200px', margin: '0 auto', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', fontSize: '11px', color: '#64748b' }}>
-          <span>© 2026 Astra AI. All rights reserved.</span>
-          <div style={{ display: 'flex', gap: '20px' }}>
+        <div style={{ maxWidth: '1200px', margin: '0 auto', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '24px', display: 'flex', justifyContent: 'space-between', fontSize: '12px', color: '#64748b' }}>
+          <span>© 2026 ASTRA AI. All rights reserved.</span>
+          <div style={{ display: 'flex', gap: '24px' }}>
             <span>Privacy Policy</span>
             <span>Terms of Service</span>
           </div>
